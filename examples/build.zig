@@ -1,25 +1,24 @@
 const std = @import("std");
 
-// TODO: Every instance of "zig-template" in this file should be renamed to match your project name
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const zig_template = b.dependency("template", .{});
+    const aquarium = b.dependency("aquarium", .{});
 
-    const some_example_exe = b.addExecutable(.{
+    const open_window_exe = b.addExecutable(.{
         .name = "examples",
-        .root_source_file = b.path("src/some_example.zig"),
+        .root_source_file = b.path("src/open_window.zig"),
         .target = target,
         .optimize = optimize,
     });
-    some_example_exe.root_module.addImport("template", zig_template.module("zig-template"));
-    b.installArtifact(some_example_exe);
-    const some_example_run_step = b.step("run", "Build and run example: some example");
-    const some_example_run_cmd = b.addRunArtifact(some_example_exe);
+    open_window_exe.root_module.addImport("aquarium", aquarium.module("aquarium"));
+    b.installArtifact(open_window_exe);
+    const open_window_run_step = b.step("run", "Build and run example: Open Window");
+    const open_window_run_cmd = b.addRunArtifact(open_window_exe);
     if (b.args) |args| {
-        some_example_run_cmd.addArgs(args);
+        open_window_run_cmd.addArgs(args);
     }
-    some_example_run_cmd.step.dependOn(b.getInstallStep());
-    some_example_run_step.dependOn(&some_example_run_cmd.step);
+    open_window_run_cmd.step.dependOn(b.getInstallStep());
+    open_window_run_step.dependOn(&open_window_run_cmd.step);
 }

@@ -1,9 +1,9 @@
 .{
-    .name = "zig-template-examples",
+    .name = "aquarium-examples",
     .version = "0.0.0",
     .minimum_zig_version = "0.13.0",
     .dependencies = .{
-        .template = .{
+        .aquarium = .{
             .path = "../",
         },
     },
