@@ -1,3 +1,3 @@
-# Zig Template
+# Aquarium
 
-A template repo that sets up a Zig Project, CI, and Editor Configurations
+A ridiculously simple Zig-based windowing library built for the Manatee Game Engine
