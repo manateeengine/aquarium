@@ -8,3 +8,4 @@ usingnamespace
 argsAlloc
 deinit
 install_subdir
+struct
